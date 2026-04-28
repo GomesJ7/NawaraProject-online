@@ -1,0 +1,7 @@
+# Configuration Hostinger Node.js
+# Dans le panneau Hostinger : Node.js App → Create Application
+# - Node.js version : 20 (LTS)
+# - Application root : /
+# - Application URL  : votre-domaine.com
+# - Application startup file : .output/server/index.mjs
+# - Run command : node .output/server/index.mjs
