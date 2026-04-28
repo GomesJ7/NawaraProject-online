@@ -1,19 +1,15 @@
 name: Deploy site to GitHub Pages
 
 on:
-  # À chaque push sur la branche main
   push:
     branches: [main]
-  # Permet aussi de relancer manuellement depuis l'onglet Actions
   workflow_dispatch:
 
-# Permissions nécessaires pour publier sur Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Évite les déploiements concurrents (si tu pushes 2x rapidement)
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -29,26 +25,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build
-        # BASE_PATH est lu par vite.config.ts pour produire des chemins absolus
-        # corrects sur https://USER.github.io/REPO-NAME/
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
 
       - name: Add SPA fallback (404.html)
-        # Astuce GitHub Pages : copier index.html en 404.html pour que le routeur
-        # côté client prenne le relais sur les URLs profondes (ex. /faq).
-        # Pour un site en hash routing (notre cas), c'est par sécurité.
         run: cp dist/index.html dist/404.html
 
       - name: Add .nojekyll
-        # Empêche GitHub Pages d'appliquer Jekyll (qui ignorerait les fichiers _xxx)
         run: touch dist/.nojekyll
 
       - name: Upload Pages artifact
