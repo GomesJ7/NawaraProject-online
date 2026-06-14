@@ -16,10 +16,6 @@ const faqs = [
         answer: "La démarche est simple : vous nous présentez votre projet via notre formulaire de contact ou directement par email. L'un de nos consultants vous recontacte sous 48 heures ouvrées pour un premier échange de qualification. Si votre projet correspond à notre champ d'intervention, nous vous proposons un rendez-vous approfondi pour construire ensemble une proposition d'accompagnement sur mesure.",
       },
       {
-        question: 'Nawara Projects travaille-t-il avec des entreprises basées hors de France ?',
-        answer: "Absolument. Bien que notre siège soit à Paris, nous accompagnons des franchiseurs et investisseurs du monde entier souhaitant se développer en Afrique de l'Ouest. Notre équipe bilingue français/anglais facilite la communication et la gestion de projets internationaux.",
-      },
-      {
         question: 'Vos deux pôles d\'activité sont-ils indépendants ?',
         answer: "Oui, totalement. Notre pôle Conseil (développement de franchises, basé à Paris) et notre pôle Réalisation (travaux terrain en Afrique) opèrent de manière autonome. Un client peut faire appel à l'un sans l'autre. Cette indépendance garantit l'absence de conflit d'intérêts.",
       },
@@ -32,10 +28,6 @@ const faqs = [
       {
         question: 'Comment Nawara Projects accompagne-t-il les franchiseurs internationaux ?',
         answer: "Nous couvrons l'intégralité du cycle de développement depuis Paris : analyse de marché africain, identification et qualification de franchisés potentiels, mise en relation avec les enseignes, coordination juridique et accompagnement jusqu'à la signature du contrat de franchise. Notre ancrage sur le continent nous permet de vous apporter des candidats réellement qualifiés et bancables.",
-      },
-      {
-        question: 'Cette activité de conseil est-elle menée depuis la France ou depuis l\'Afrique ?',
-        answer: "Le conseil, la conception stratégique et le développement de franchises sont pilotés depuis notre siège parisien. C'est l'unique activité que nous menons depuis la France. Nos bureaux régionaux en Afrique (Abidjan, Dakar) assurent le lien terrain pour les phases de prospection et de sélection de franchisés.",
       },
       {
         question: 'Quels marchés africains ciblez-vous ?',
@@ -96,7 +88,7 @@ function FAQ() {
   return (
     <div style={{ background: 'var(--cream-light)', minHeight: '100vh' }}>
       {/* Header */}
-      <div style={{ background: 'var(--charcoal)', padding: '5rem 2rem 4rem' }}>
+      <div style={{ background: '#F7F4EE', padding: '5rem 2rem 4rem' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--slate-light)', fontSize: '0.82rem', textDecoration: 'none', marginBottom: '2rem', transition: 'color 0.2s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--gold)' }}
@@ -104,10 +96,10 @@ function FAQ() {
             <ArrowLeft size={14} /> Retour à l'accueil
           </Link>
           <div className="tag" style={{ marginBottom: '1.25rem', color: 'var(--gold)' }}>Questions fréquentes</div>
-          <h1 className="font-display" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 600, color: 'var(--cream)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '1rem' }}>
+          <h1 className="font-display" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '1rem' }}>
             Tout savoir sur<br /><span style={{ color: 'var(--gold)' }}>Nawara Projects</span>
           </h1>
-          <p style={{ color: 'rgba(244,237,224,0.6)', fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 300 }}>
+          <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 300 }}>
             Retrouvez les réponses à vos questions sur nos deux pôles d'activité. Pour toute demande spécifique, n'hésitez pas à nous contacter directement.
           </p>
 
@@ -119,7 +111,7 @@ function FAQ() {
               placeholder="Rechercher une question..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              style={{ width: '100%', padding: '0.85rem 1rem 0.85rem 2.75rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(196,152,58,0.25)', borderRadius: '6px', color: 'var(--cream)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box', fontFamily: "'DM Sans', sans-serif", transition: 'border-color 0.2s' }}
+              style={{ width: '100%', padding: '0.85rem 1rem 0.85rem 2.75rem', background: '#fff', border: '1px solid rgba(196,152,58,0.3)', borderRadius: '6px', color: 'var(--charcoal)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box', fontFamily: "'DM Sans', sans-serif", transition: 'border-color 0.2s' }}
               onFocus={e => { e.target.style.borderColor = 'var(--gold)' }}
               onBlur={e => { e.target.style.borderColor = 'rgba(196,152,58,0.25)' }}
             />
@@ -129,14 +121,14 @@ function FAQ() {
           <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginTop: '1.25rem' }}>
             <button
               onClick={() => setActiveCategory(null)}
-              style={{ padding: '0.35rem 0.9rem', borderRadius: '100px', border: `1px solid ${!activeCategory ? 'var(--gold)' : 'rgba(196,152,58,0.3)'}`, background: !activeCategory ? 'var(--gold)' : 'transparent', color: !activeCategory ? 'var(--charcoal)' : 'var(--cream)', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', fontFamily: "'DM Sans', sans-serif" }}
+              style={{ padding: '0.35rem 0.9rem', borderRadius: '100px', border: `1px solid ${!activeCategory ? 'var(--gold)' : 'rgba(196,152,58,0.3)'}`, background: !activeCategory ? 'var(--gold)' : '#fff', color: !activeCategory ? '#000' : 'var(--charcoal)', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', fontFamily: "'DM Sans', sans-serif" }}
             >
               Toutes
             </button>
             {faqs.map(s => (
               <button key={s.category}
                 onClick={() => setActiveCategory(activeCategory === s.category ? null : s.category)}
-                style={{ padding: '0.35rem 0.9rem', borderRadius: '100px', border: `1px solid ${activeCategory === s.category ? 'var(--gold)' : 'rgba(196,152,58,0.3)'}`, background: activeCategory === s.category ? 'var(--gold)' : 'transparent', color: activeCategory === s.category ? 'var(--charcoal)' : 'var(--cream)', fontSize: '0.78rem', fontWeight: 500, cursor: 'pointer', transition: 'all 0.2s', fontFamily: "'DM Sans', sans-serif" }}
+                style={{ padding: '0.35rem 0.9rem', borderRadius: '100px', border: `1px solid ${activeCategory === s.category ? 'var(--gold)' : 'rgba(196,152,58,0.3)'}`, background: activeCategory === s.category ? 'var(--gold)' : '#fff', color: activeCategory === s.category ? '#000' : 'var(--charcoal)', fontSize: '0.78rem', fontWeight: 500, cursor: 'pointer', transition: 'all 0.2s', fontFamily: "'DM Sans', sans-serif" }}
               >
                 {s.emoji} {s.category}
               </button>
@@ -178,9 +170,9 @@ function FAQ() {
         ))}
 
         {/* CTA */}
-        <div style={{ background: 'var(--charcoal)', borderRadius: '8px', padding: '3rem', textAlign: 'center', marginTop: '4rem' }}>
-          <h3 className="font-display" style={{ color: 'var(--cream)', fontSize: '1.8rem', fontWeight: 600, marginBottom: '0.75rem' }}>Vous n'avez pas trouvé votre réponse ?</h3>
-          <p style={{ color: 'var(--slate-light)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '2rem' }}>Notre équipe est disponible pour répondre à toutes vos questions.</p>
+        <div style={{ background: '#F7F4EE', borderRadius: '8px', padding: '3rem', textAlign: 'center', marginTop: '4rem' }}>
+          <h3 className="font-display" style={{ color: 'var(--charcoal)', fontSize: '1.8rem', fontWeight: 600, marginBottom: '0.75rem' }}>Vous n'avez pas trouvé votre réponse ?</h3>
+          <p style={{ color: 'var(--slate)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '2rem' }}>Notre équipe est disponible pour répondre à toutes vos questions.</p>
           <Link to="/" style={{ display: 'inline-block', padding: '0.85rem 2rem', background: 'var(--gold)', color: 'var(--charcoal)', borderRadius: '4px', fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none' }}>Nous contacter</Link>
         </div>
       </div>

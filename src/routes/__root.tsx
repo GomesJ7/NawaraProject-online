@@ -1,11 +1,31 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import '../styles.css'
 
-// Layout racine en mode SPA : pas de coque HTML/Scripts, c'est `index.html`
-// qui fournit la structure du document.
 export const Route = createRootRoute({
-  component: RootLayout,
+  head: () => ({
+    meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'Nawara Projects' },
+      { name: 'description', content: 'Cabinet spécialisé dans le développement de franchises et la réalisation de projets immobiliers en Afrique de l\'Ouest.' },
+    ],
+    links: [
+      { rel: 'icon', href: '/Logo1.png' },
+    ],
+  }),
+  shellComponent: RootDocument,
 })
 
-function RootLayout() {
-  return <Outlet />
+function RootDocument({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  )
 }
