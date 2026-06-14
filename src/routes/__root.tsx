@@ -10,7 +10,7 @@ export const Route = createRootRoute({
       { name: 'description', content: 'Cabinet spécialisé dans le développement de franchises et la réalisation de projets immobiliers en Afrique de l\'Ouest.' },
     ],
     links: [
-      { rel: 'icon', href: '/Logo1.png' },
+      { rel: 'icon', href: `${import.meta.env.BASE_URL}Logo1.png` },
     ],
   }),
   shellComponent: RootDocument,

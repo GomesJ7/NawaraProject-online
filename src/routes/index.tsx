@@ -125,9 +125,9 @@ function Home() {
         borderBottom: scrolled ? '1px solid rgba(196,152,58,0.15)' : 'none',
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', height: '72px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <a href={import.meta.env.BASE_URL} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div>
-              <img src="../public/logo1.png" alt="Nawara Projects Logo" style={{ width: '90px', height: '90px', objectFit: 'contain' }} />
+              <img src={`${import.meta.env.BASE_URL}Logo1.png`} alt="Nawara Projects Logo" style={{ width: '90px', height: '90px', objectFit: 'contain' }} />
             </div>
             <span className="font-display" style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--white)', letterSpacing: '0.02em' }}>
               Nawara <span style={{ color: 'var(--gold)' }}>Projects</span>
@@ -277,7 +277,7 @@ function Home() {
                   margin: '0 auto',
                 }}>
                   <img
-                    src="/fondateur.png"
+                    src={`${import.meta.env.BASE_URL}fondateur.png`}
                     alt="Miguel Gomes — Fondateur de Nawara Projects"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
                   />
