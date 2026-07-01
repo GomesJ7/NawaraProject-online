@@ -5,8 +5,9 @@ import {
   ArrowRight, ArrowLeft, MapPin, Building2, Handshake, ClipboardList,
   Search, Users, HardHat, CheckCircle2, Menu, X, ChevronRight, Globe,
   Sparkles, Wrench, Scale, Landmark, Hammer, Ruler, Calculator, Network,
-  Send,
+  Send, ShieldCheck,
 } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -84,8 +85,8 @@ function Reveal({ children, delay = 0, direction = 'up' }: {
 function StatItem({ value, numericValue, label, suffix = '' }: {
   value?: string; numericValue?: number; label: string; suffix?: string
 }) {
+  const { ref, display } = useCountUp(numericValue ?? 0, 1800, suffix)
   if (numericValue !== undefined) {
-    const { ref, display } = useCountUp(numericValue, 1800, suffix)
     return (
       <div ref={ref}>
         <div className="font-display" style={{ fontSize: '2.5rem', fontWeight: 600, color: 'var(--gold)', lineHeight: 1 }}>{display}</div>
@@ -136,13 +137,13 @@ function Home() {
           <nav style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
             <div className="hidden-mobile" style={{ display: 'flex', gap: '2rem' }}>
               {NAV_LINKS.map(({ label, href }) => (
-                <a key={label} href={href} className="nav-link" style={{ color: 'var(--charcoal)', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', letterSpacing: '0.02em' }}>{label}</a>
+                <a key={label} href={href} className="nav-link" style={{ color: 'var(--white)', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', letterSpacing: '0.02em' }}>{label}</a>
               ))}
             </div>
             <a href="#contact" className="btn-gold" style={{ padding: '0.6rem 1.4rem', borderRadius: '4px', fontSize: '0.82rem', textDecoration: 'none', display: 'inline-block' }}>
               <span>Demander un devis</span>
             </a>
-            <button onClick={() => setMenuOpen(!menuOpen)} className="mobile-only" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--cream)', padding: '4px' }}>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="mobile-only" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--white)', padding: '4px' }}>
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </nav>
@@ -169,13 +170,14 @@ function Home() {
           <div style={{ maxWidth: '800px' }}>
             <div className="tag animate-fade-up" style={{ marginBottom: '2rem' }}>Cabinet de Conseil & Ingénierie — Afrique de l'Ouest</div>
             <h1 className="font-display animate-fade-up animate-fade-up-d1" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 600, color: 'var(--white)', lineHeight: 1.08, letterSpacing: '-0.02em', marginBottom: '2rem' }}>
-              Votre partenaire<br />
-              <span style={{ color: 'var(--gold)' }}>stratégique</span><br />
+              Votre partenaire stratégique en<br />
+              <span style={{ color: 'var(--gold)' }}>implantation commerciale</span><br />
               en Afrique de l'Ouest
             </h1>
             <p className="animate-fade-up animate-fade-up-d2" style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75, maxWidth: '580px', marginBottom: '3rem', fontWeight: 300 }}>
-              Des experts passionnés par le développement de franchises, qui accompagnent les enseignes au quotidien dans la structuration et la croissance de leur réseau en Afrique de l'Ouest — sélection des meilleurs franchisés, recherche de locaux commerciaux, accès au financement, puis maîtrise d'œuvre et réalisation sur site africain. Deux expertises complémentaires, un seul interlocuteur.
-            </p>
+              De la sélection du franchisé à la remise des clés du local aménagé. 
+              Nous accompagnons franchisés, master franchisés, entrepreneurs indépendants et investisseurs
+              dans chaque étape de leur implantation commerciale.            </p>
             <div className="animate-fade-up animate-fade-up-d3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a href="#consulting" className="btn-gold" style={{ padding: '0.9rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                 <span>Découvrir nos expertises</span><ArrowRight size={16} />
@@ -196,7 +198,7 @@ function Home() {
         </div>
       </section>
 
-      {/* TWO PILLARS */}
+      {/* TWO PILLARS
       <section style={{ background: 'var(--cream-light)', padding: '6rem 2rem' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <Reveal>
@@ -242,8 +244,7 @@ function Home() {
             </Reveal>
           </div>
         </div>
-      </section>
-
+      </section> */}
 
       {/* ── QUI NOUS SOMMES ── */}
       <section id="qui-nous-sommes" style={{ background: 'var(--cream-light)', padding: '7rem 2rem' }}>
@@ -308,7 +309,7 @@ function Home() {
                 </h3>
 
                 <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '1.25rem', fontWeight: 300 }}>
-                  Fort de son expérience chez <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Artelia (2022–2026)</strong> en tant que Directeur Commercial des Partenariats Travaux, Miguel Gomes a accompagné de nombreuses campagnes de déploiement d'ERP (établissements recevant du public), d'enseignes en propre — succursales, mixte ou franchise — à travers toute la France.
+                  Fort de son expérience chez <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Artelia (2022–2026)</strong> en tant que Directeur Commercial des Partenariats Travaux, Miguel Gomes a accompagné de nombreuses campagnes de déploiement d'ERP (établissements recevant du public), d'enseignes en propre succursales, mixte ou franchise à travers toute la France.
                 </p>
 
                 <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '1.25rem', fontWeight: 300 }}>
@@ -316,7 +317,7 @@ function Home() {
                 </p>
 
                 <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '2.5rem', fontWeight: 300 }}>
-                  C'est de cette conviction qu'est né <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Nawara Projects</strong> — pour accompagner les enseignes occidentales et locales dans la construction et l'aménagement de leur concept sur le continent africain, avec la rigueur d'un opérateur européen et la proximité d'une équipe ancrée sur le terrain.
+                  C'est de cette conviction qu'est né <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Nawara Projects</strong>, pour accompagner les enseignes occidentales et locales dans la construction et l'aménagement de leur concept sur le continent africain, avec la rigueur d'un opérateur européen et la proximité d'une équipe ancrée sur le terrain.
                 </p>
 
                 {/* Timeline */}
@@ -446,50 +447,7 @@ function Home() {
       </section>
 
       {/* PROJETS / RÉALISATIONS */}
-      <section id="projets" style={{ background: '#F7F4EE', padding: '7rem 2rem', position: 'relative', overflow: 'hidden' }}>
-        <div className="geo-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.4 }} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto' }}>
-          <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start', marginBottom: '4rem' }}>
-            <Reveal direction="left">
-              <div>
-                <div className="tag" style={{ marginBottom: '1.5rem', color: 'var(--gold)' }}>Réalisation opérationnelle — sur le continent africain</div>
-                <h2 className="font-display" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
-                  Réalisation de Projets<br /><span style={{ color: 'var(--gold)' }}>en Afrique de l'Ouest</span>
-                </h2>
-              </div>
-            </Reveal>
-            <Reveal direction="right">
-              <div style={{ paddingTop: '1rem' }}>
-                <p style={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.8, fontSize: '1rem', fontWeight: 300 }}>
-                  De la conception à la livraison, nos équipes interviennent directement sur le terrain africain pour la réalisation de vos projets immobiliers et commerciaux. Aucun projet en France : notre réalisation opérationnelle est exclusivement dédiée au continent africain.
-                </p>
-                <div style={{ marginTop: '1.5rem', padding: '1rem 1.5rem', background: 'rgba(196,152,58,0.08)', borderLeft: '3px solid var(--gold)', borderRadius: '0 4px 4px 0' }}>
-                  <p style={{ color: 'var(--gold-pale)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
-                    <strong style={{ color: 'var(--cream)' }}>Périmètre exclusivement africain :</strong> MOE, AMO, MOD et travaux sont menés uniquement sur le continent, avec des équipes et partenaires locaux qualifiés.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-          <HorizontalScroll dark>
-            {[
-              { icon: <HardHat size={24} />, acronym: 'MOE', title: "Maîtrise d'Œuvre", description: "Pilotage technique sur site africain : coordination des bureaux d'études locaux, suivi de chantier, contrôle qualité et respect des normes locales." },
-              { icon: <ClipboardList size={24} />, acronym: 'AMO', title: "Assistance à Maîtrise d'Ouvrage", description: "Conseil et assistance technique au maître d'ouvrage tout au long du projet africain. Défense de vos intérêts et optimisation des décisions sur place." },
-              { icon: <Building2 size={24} />, acronym: 'MOD', title: "Maîtrise d'Ouvrage Déléguée", description: "Délégation complète sur le continent : Nawara Projects représente et engage vos intérêts dans toutes les dimensions du projet africain." },
-              { icon: <CheckCircle2 size={24} />, acronym: 'CG', title: 'Contractant Général', description: "Solution clé en main pour vos projets africains : conception, construction, coordination et livraison finale sous un contrat unique avec partenaires locaux." },
-              { icon: <Search size={24} />, acronym: 'DD', title: 'Due Diligence', description: "Audit technique, juridique et financier de vos actifs en Afrique. Identification des risques, évaluation de la conformité aux normes locales et recommandations." },
-            ].map(({ icon, acronym, title, description }) => (
-              <div key={acronym} className="h-scroll-card service-card" style={{ background: '#fff', border: '1px solid rgba(196,152,58,0.2)', borderRadius: '8px', padding: '2rem', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ position: 'absolute', top: '-14px', right: '1.5rem', fontFamily: "'Cormorant Garamond', serif", fontSize: '4.5rem', fontWeight: 700, color: 'rgba(196,152,58,0.08)', letterSpacing: '-0.02em', lineHeight: 1, userSelect: 'none' }}>{acronym}</div>
-                <div style={{ width: '48px', height: '48px', background: 'rgba(196,152,58,0.12)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', marginBottom: '1.5rem' }}>{icon}</div>
-                <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '0.4rem' }}>{acronym}</div>
-                <h3 style={{ color: 'var(--charcoal)', fontSize: '1.05rem', fontWeight: 600, marginBottom: '0.75rem', lineHeight: 1.3 }}>{title}</h3>
-                <p style={{ color: 'var(--slate)', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>{description}</p>
-              </div>
-            ))}
-          </HorizontalScroll>
-        </div>
-      </section>
+      <ExpertiseSection />
 
       {/* LIVRAISON */}
       <DeliverySection />
@@ -678,6 +636,73 @@ function Home() {
   )
 }
 
+/* ── ExpertiseSection ── */
+function ExpertiseSection() {
+  const metiers: Array<{ sigle: string; titre: string; description: string; featured?: boolean }> = [
+    {
+      sigle: 'DD',
+      titre: 'Due Diligence',
+      description: "Audit technique, juridique et financier de vos actifs en Afrique. Identification des risques, évaluation de la conformité aux normes locales et recommandations.",
+    },
+    {
+      sigle: 'AMO',
+      titre: "Assistance à Maîtrise d'Ouvrage",
+      description: "Conseil et assistance technique au maître d'ouvrage tout au long du projet africain. Défense de vos intérêts et optimisation des décisions sur place.",
+    },
+    {
+      sigle: 'OPC',
+      titre: 'Ordonnancement, Pilotage & Coordination',
+      description: "Planification des travaux, gestion des interfaces et suivi de l'avancement chantier sur le continent africain.",
+    },
+    {
+      sigle: 'CG',
+      titre: 'Contractant Général',
+      description: "Solution clé en main pour vos projets africains : conception, construction, coordination et livraison finale sous un contrat unique avec partenaires locaux.",
+      featured: true,
+    },
+    {
+      sigle: 'MOD',
+      titre: "Maîtrise d'Ouvrage Déléguée",
+      description: "Délégation complète sur le continent : Nawara Projects représente et engage vos intérêts dans toutes les dimensions du projet africain.",
+    },
+  ]
+
+  return (
+    <section id="projets" style={{ position: 'relative', overflow: 'hidden', background: 'var(--charcoal)', padding: 'clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4.5rem)' }}>
+      <div style={{ position: 'absolute', top: '-120px', right: '-120px', width: '420px', height: '320px', background: 'radial-gradient(closest-side, rgba(196,152,58,0.35), rgba(196,152,58,0) 70%)', pointerEvents: 'none' }} />
+      <div className="geo-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.2 }} />
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto' }}>
+        <Reveal>
+          <div className="tag" style={{ marginBottom: '1.25rem', color: 'var(--gold)' }}>Réalisation opérationnelle — sur le continent africain</div>
+          <h2 className="font-display" style={{ margin: '0 0 clamp(2rem, 4vw, 3.25rem)', fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 600, color: 'var(--cream)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+            Cinq métiers,<br /><span style={{ color: 'var(--gold)' }}>un seul interlocuteur</span>
+          </h2>
+        </Reveal>
+        <div className="expertise-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 'clamp(1rem, 1.6vw, 1.5rem)' }}>
+          {metiers.map((m, i) => (
+            <Reveal key={m.sigle} delay={i * 70}>
+              <div className={`expertise-card service-card${m.featured ? ' expertise-card--featured' : ''}`} style={{ position: 'relative', background: '#fff', border: `1px solid ${m.featured ? 'rgba(196,152,58,0.4)' : '#e7e7e7'}`, borderRadius: '4px', padding: '1.75rem 1.5rem 2rem', boxSizing: 'border-box' as const }}>
+                <span className="font-display" style={{ display: 'block', marginBottom: '1rem', fontSize: '2rem', fontWeight: 600, color: 'var(--gold)', letterSpacing: '0.02em' }}>{m.sigle}</span>
+                <h3 style={{ margin: '0 0 0.85rem', fontSize: '1rem', fontWeight: 700, lineHeight: 1.3, color: 'var(--charcoal)' }}>{m.titre}</h3>
+                <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.65, color: 'var(--slate)' }}>{m.description}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <style>{`
+          @media (max-width: 1100px) { .expertise-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+          @media (max-width: 560px)  { .expertise-grid { grid-template-columns: 1fr !important; } }
+          .expertise-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+          .expertise-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); border-radius: 4px 4px 0 0; opacity: 0; transition: opacity 0.25s ease; }
+          .expertise-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(0,0,0,0.55); }
+          .expertise-card:hover::before, .expertise-card--featured::before { opacity: 1; }
+          @media (prefers-reduced-motion: reduce) { .expertise-card { transition: none; } .expertise-card:hover { transform: none; } }
+        `}</style>
+      </div>
+    </section>
+  )
+}
+
 /* ── HorizontalScroll ── */
 function HorizontalScroll({ children, dark }: { children: ReactNode; dark?: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -767,14 +792,16 @@ function DeliverySection() {
 /* ── PartnershipSection ── */
 function PartnershipSection() {
   const groups = [
+    { tag: 'Développement', icon: <Building2 size={22}/>, title: 'Promoteurs Immobiliers', description: "Partenaires de développement immobilier locaux pour des projets mixtes, résidentiels et commerciaux africains.", items: ['Commerces','Tertiaire','Résidentiel','Mixte'] },
+    { tag: 'Conseil juridique', icon: <Scale size={22}/>, title: 'Experts Juridiques', description: "Avocats d'affaires et juristes locaux maîtrisant les réglementations et le droit des affaires du continent africain.", items: ['Droit des affaires','Contrats','Conformité','Fiscalité'] },
+    { tag: 'Financement', icon: <Landmark size={22}/>, title: 'Établissements Bancaires', description: "Réseau de banques africaines partenaires pour le financement et l'accompagnement de vos projets d'implantation.", items: ['Financement','Crédit-bail','Garanties','Transferts'] },
+    { tag: 'Protection', icon: <ShieldCheck size={22}/>, title: 'Assurances', description: "Assureurs locaux pour la couverture de vos chantiers, biens et activités commerciales en Afrique de l'Ouest.", items: ['Tous risques chantier','Responsabilité civile','Biens','Exploitation'] },
     { tag: 'Conception', icon: <Ruler size={22}/>, title: 'Architectes', description: "Partenaires locaux de conception, permis de construire et plans d'exécution adaptés aux normes africaines.", items: ['Concept & esquisse','APS / APD','Permis de construire','Plans d\'exécution'] },
-    { tag: 'Pilotage chantier', icon: <HardHat size={22}/>, title: 'Conducteurs de Travaux', description: "Pilotage opérationnel des chantiers africains, coordination des corps d'état locaux et tenue des plannings.", items: ['Planning & OPC','Coordination lots','Suivi budget','Réception travaux'] },
-    { tag: 'Ingénierie', icon: <Wrench size={22}/>, title: 'Ingénieurs', description: "Ingénieurs locaux maîtrisant les contraintes techniques et climatiques du continent africain.", items: ['Structure','Fluides','Électricité','Sécurité incendie'] },
+    { tag: 'Ingénierie', icon: <Wrench size={22}/>, title: 'Ingénieurs Structure', description: "Ingénieurs locaux maîtrisant les contraintes techniques et climatiques du continent africain.", items: ['Structure','Fluides','Électricité','Sécurité incendie'] },
     { tag: 'Coûts & métrés', icon: <Calculator size={22}/>, title: 'Économistes de la Construction', description: "Analyse des coûts, métrés et optimisation budgétaire selon les marchés locaux africains.", items: ['Métrés','Estimations','DCE','Optimisation budget'] },
-    { tag: 'Études techniques', icon: <ClipboardList size={22}/>, title: "Bureaux d'Études (BET)", description: "Expertise technique adaptée aux conditions géologiques et climatiques spécifiques au continent africain.", items: ['Structure','Thermique & CVC','Acoustique','Géotechnique'] },
-    { tag: 'Développement', icon: <Landmark size={22}/>, title: 'Promoteurs', description: "Partenaires de développement immobilier locaux pour des projets mixtes, résidentiels et commerciaux africains.", items: ['Commerces','Tertiaire','Résidentiel','Mixte'] },
-    { tag: 'Experts sectoriels', icon: <Scale size={22}/>, title: 'Experts Juridique, Banque & Assurance', description: "Avocats d'affaires locaux, banques africaines, assureurs et fiscalistes maîtrisant les réglementations du continent.", items: ['Juridique local','Banque africaine','Assurance','Fiscalité'] },
-    { tag: 'Entreprises travaux', icon: <Hammer size={22}/>, title: "Entreprises d'aménagement (TCE & lots)", description: "Réseau d'entreprises tous corps d'état locaux pour l'aménagement de cellules commerciales en Afrique de l'Ouest.", items: ['TCE — tous corps d\'état','CVC & climatisation','Menuiserie & agencement','Peinture & revêtements'] },
+    { tag: 'Études techniques', icon: <ClipboardList size={22}/>, title: "Bureaux d'Études Techniques", description: "Expertise technique adaptée aux conditions géologiques et climatiques spécifiques au continent africain.", items: ['Structure','Thermique & CVC','Acoustique','Géotechnique'] },
+    { tag: 'Pilotage chantier', icon: <HardHat size={22}/>, title: 'Conducteurs de Travaux', description: "Pilotage opérationnel des chantiers africains, coordination des corps d'état locaux et tenue des plannings.", items: ['Planning & OPC','Coordination lots','Suivi budget','Réception travaux'] },
+    { tag: 'Entreprises travaux', icon: <Hammer size={22}/>, title: 'Entreprises TCE', description: "Réseau d'entreprises tous corps d'état locaux pour l'aménagement de cellules commerciales en Afrique de l'Ouest.", items: ['TCE — tous corps d\'état','CVC & climatisation','Menuiserie & agencement','Peinture & revêtements'] },
   ]
   return (
     <section id="partenariat" style={{ background: '#F7F4EE', padding: '7rem 2rem', position: 'relative', overflow: 'hidden' }}>
@@ -826,44 +853,89 @@ function PartnershipSection() {
 }
 
 /* ── ContactForm (EmailJS — compatible Hostinger) ── */
-// CONFIGURATION EMAILJS
-// 1. Créez un compte gratuit sur emailjs.com
-// 2. Ajoutez un "Email Service" (Gmail, Outlook, etc.)
-// 3. Créez un "Email Template" avec les variables : {{from_name}}, {{from_email}}, {{phone}}, {{company}}, {{profile}}, {{subject}}, {{message}}
-// 4. Remplacez les 3 constantes ci-dessous par vos identifiants EmailJS
-const EMAILJS_SERVICE_ID  = 'VOTRE_SERVICE_ID'   // ex: 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID'  // ex: 'template_xyz456'
-const EMAILJS_PUBLIC_KEY  = 'VOTRE_PUBLIC_KEY'   // ex: 'aBcDeFgHiJkLmNoP'
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string
+
+/* Libellés lisibles pour les valeurs des menus déroulants */
+const PROFILE_LABELS: Record<string, string> = {
+  franchiseur: 'Franchiseur',
+  franchise:   'Franchisé',
+  promoteur:   'Promoteur immobilier',
+  fonds:       "Fonds d'investissement",
+  enseigne:    'Enseigne / Retailer',
+  autre:       'Autre',
+}
+const SUBJECT_LABELS: Record<string, string> = {
+  consulting: 'Développement de franchises',
+  travaux:    'Réalisation — projet africain',
+  mixte:      'Projet global (conseil + réalisation)',
+  autre:      'Autre demande',
+}
 
 type FormState = { name: string; email: string; phone: string; company: string; profile: string; subject: string; message: string }
+type FileData  = { name: string; data: string }
 
 function ContactForm() {
   const [formData, setFormData] = useState<FormState>({ name: '', email: '', phone: '', company: '', profile: 'franchiseur', subject: 'consulting', message: '' })
   const [status, setStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle')
+  const [filesBase64, setFilesBase64] = useState<FileData[]>([])
 
   const inputStyle = { width: '100%', padding: '0.75rem 1rem', background: '#fff', border: '1px solid rgba(196,152,58,0.25)', borderRadius: '4px', color: 'var(--charcoal)', fontSize: '0.875rem', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' as const, fontFamily: "'DM Sans', sans-serif" }
   const labelStyle = { display: 'block', fontSize: '0.72rem', letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--gold)', marginBottom: '0.4rem', fontWeight: 600 }
 
+  const handleFiles = (fileList: FileList | null) => {
+    if (!fileList) return
+    const selected = Array.from(fileList).slice(0, 3)
+    Promise.all(
+      selected.map(file => new Promise<FileData>((resolve) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve({ name: file.name, data: reader.result as string })
+        reader.readAsDataURL(file)
+      }))
+    ).then(setFilesBase64)
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error('EmailJS: variables d\'environnement manquantes (VITE_EMAILJS_*)')
+      setStatus('error')
+      return
+    }
     setStatus('submitting')
+
+    const profileLabel = PROFILE_LABELS[formData.profile] ?? formData.profile
+    const subjectLabel = SUBJECT_LABELS[formData.subject] ?? formData.subject
+
+    // Corps de message complet : tout est replié dans {{message}} pour ne rien perdre,
+    // même si le template ne référence que name / message / title.
+    const messageComplet = [
+      `Profil porteur de projet : ${profileLabel}`,
+      `Nature du projet : ${subjectLabel}`,
+      `Téléphone : ${formData.phone || 'Non renseigné'}`,
+      `Société / Enseigne : ${formData.company || 'Non renseigné'}`,
+      '',
+      '— Détail du projet —',
+      formData.message,
+    ].join('\n')
+
+    // Noms de variables alignés EXACTEMENT sur le template EmailJS :
+    // {{name}}, {{email}}, {{title}}, {{message}} (+ champs détaillés optionnels).
+    const templateParams: Record<string, string> = {
+      name:    formData.name,
+      email:   formData.email,
+      title:   subjectLabel,          // remplit le sujet « Contact Us: {{title}} »
+      message: messageComplet,
+      phone:   formData.phone   || 'Non renseigné',
+      company: formData.company || 'Non renseigné',
+      profile: profileLabel,
+      subject: subjectLabel,
+    }
+
+
     try {
-      // Chargement dynamique d'EmailJS (pas besoin de npm install)
-      const emailjs = await import('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm' as string) as any
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone || 'Non renseigné',
-          company: formData.company || 'Non renseigné',
-          profile: formData.profile,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, { publicKey: EMAILJS_PUBLIC_KEY })
       setStatus('success')
     } catch (err) {
       console.error('EmailJS error:', err)
