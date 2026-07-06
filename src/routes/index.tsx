@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import {
   ArrowRight, ArrowLeft, MapPin, Building2, Handshake, ClipboardList,
-  Search, Users, HardHat, CheckCircle2, Menu, X, ChevronRight, Globe,
+  Search, Users, HardHat, CheckCircle2, Menu, X, ChevronRight,
   Sparkles, Wrench, Scale, Landmark, Hammer, Ruler, Calculator, Network,
   Send, ShieldCheck,
 } from 'lucide-react'
@@ -168,16 +168,15 @@ function Home() {
         </div>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto', padding: '8rem 2rem 6rem', width: '100%' }}>
           <div style={{ maxWidth: '800px' }}>
-            <div className="tag animate-fade-up" style={{ marginBottom: '2rem' }}>Cabinet de Conseil & Ingénierie — Afrique de l'Ouest</div>
+            <div className="tag animate-fade-up" style={{ marginBottom: '2rem' }}>Cabinet de Conseil & Ingénierie — Afrique de l'Ouest francophone</div>
             <h1 className="font-display animate-fade-up animate-fade-up-d1" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 600, color: 'var(--white)', lineHeight: 1.08, letterSpacing: '-0.02em', marginBottom: '2rem' }}>
               Votre partenaire stratégique en<br />
               <span style={{ color: 'var(--gold)' }}>implantation commerciale</span><br />
               en Afrique de l'Ouest
             </h1>
             <p className="animate-fade-up animate-fade-up-d2" style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75, maxWidth: '580px', marginBottom: '3rem', fontWeight: 300 }}>
-              De la sélection du franchisé à la remise des clés du local aménagé. 
-              Nous accompagnons franchisés, master franchisés, entrepreneurs indépendants et investisseurs
-              dans chaque étape de leur implantation commerciale.            </p>
+              De la sélection du franchisé à la remise des clés du local aménagé.
+              Vous avez un projet commercial en Afrique de l'Ouest — qu'il vienne d'Abidjan, de Paris ou de New York, nous le faisons aboutir.            </p>
             <div className="animate-fade-up animate-fade-up-d3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a href="#consulting" className="btn-gold" style={{ padding: '0.9rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                 <span>Découvrir nos expertises</span><ArrowRight size={16} />
@@ -187,9 +186,9 @@ function Home() {
           </div>
           {/* Animated stats */}
           <div className="animate-fade-up animate-fade-up-d4" style={{ marginTop: '6rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', maxWidth: '680px', paddingTop: '3rem', borderTop: '1px solid rgba(196,152,58,0.3)' }}>
-            <StatItem numericValue={15} suffix="+" label="Pays couverts en Afrique" />
-            <StatItem numericValue={2} label="Pôles d'expertise complémentaires" />
-            <StatItem value="100%" label="Accompagnement sur mesure" />
+            <StatItem suffix="+" numericValue={15}  label="Pays couverts" />
+            <StatItem numericValue={3} label="Marchés prioritaires" />
+            <StatItem value="6" label="Métiers, 1 Interlocuteur" />
           </div>
         </div>
         <div style={{ position: 'absolute', bottom: '2.5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', animation: 'shimmer 2s ease infinite' }}>
@@ -197,54 +196,6 @@ function Home() {
           <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--gold)' }} />
         </div>
       </section>
-
-      {/* TWO PILLARS
-      <section style={{ background: 'var(--cream-light)', padding: '6rem 2rem' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <div className="tag" style={{ justifyContent: 'center', marginBottom: '1.25rem', color: 'var(--gold)' }}>Nos deux pôles d'activité</div>
-              <h2 className="font-display" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 600, color: 'var(--charcoal)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-                Deux expertises indépendantes,<br /><span style={{ color: 'var(--gold)' }}>un seul cabinet</span>
-              </h2>
-            </div>
-          </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2rem' }}>
-            <Reveal delay={0} direction="left">
-              <a href="#consulting" className="pillar-card service-card" style={{ background: 'var(--charcoal)', borderRadius: '8px', textDecoration: 'none', display: 'block', border: '1px solid rgba(196,152,58,0.12)', overflow: 'hidden' }}>
-                <div style={{ height: '180px', backgroundImage: 'url(https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85))' }} />
-                </div>
-                <div style={{ padding: '2.5rem 3rem 3rem' }}>
-                <div style={{ width: '56px', height: '56px', background: 'rgba(196,152,58,0.12)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', color: 'var(--gold)' }}><Handshake size={26} /></div>
-                <div className="tag" style={{ marginBottom: '1rem', color: 'var(--gold)' }}>Conseil & Conception — depuis Paris</div>
-                <h3 className="font-display" style={{ fontSize: '1.8rem', fontWeight: 600, color: 'var(--cream)', marginBottom: '1rem', lineHeight: 1.2, letterSpacing: '-0.01em' }}>Développement<br />de Franchises</h3>
-                <p style={{ color: 'var(--slate-light)', lineHeight: 1.7, fontSize: '0.92rem', marginBottom: '2rem' }}>
-                  Accompagnement des franchiseurs internationaux dans leur déploiement en Afrique de l'Ouest — de l'analyse stratégique jusqu'à la signature du contrat. Activité pilotée depuis Paris.
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--gold)', fontSize: '0.85rem', fontWeight: 500 }}>En savoir plus <ChevronRight size={16} /></div>
-                </div>
-              </a>
-            </Reveal>
-            <Reveal delay={100} direction="right">
-              <a href="#projets" className="pillar-card service-card" style={{ background: 'var(--cream-light)', borderRadius: '8px', textDecoration: 'none', display: 'block', border: '1px solid var(--border-light)', overflow: 'hidden' }}>
-                <div style={{ height: '180px', backgroundImage: 'url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, rgba(255,255,255,0.85))' }} />
-                </div>
-                <div style={{ padding: '2.5rem 3rem 3rem' }}>
-                <div style={{ width: '56px', height: '56px', background: 'rgba(0,0,0,0.06)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', color: 'var(--charcoal)' }}><Building2 size={26} /></div>
-                <div className="tag" style={{ marginBottom: '1rem', color: 'var(--charcoal)' }}>Réalisation opérationnelle — sur le continent africain</div>
-                <h3 className="font-display" style={{ fontSize: '1.8rem', fontWeight: 600, color: 'var(--charcoal)', marginBottom: '1rem', lineHeight: 1.2, letterSpacing: '-0.01em' }}>Maîtrise d'Ouvrage<br />& d'Œuvre</h3>
-                <p style={{ color: 'var(--slate)', lineHeight: 1.7, fontSize: '0.92rem', marginBottom: '2rem' }}>
-                  MOE, AMO, MOD, contractant général, due diligence — nos équipes interviennent directement sur le terrain africain pour la réalisation de vos projets, avec des partenaires locaux qualifiés.
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--charcoal)', fontSize: '0.85rem', fontWeight: 500 }}>En savoir plus <ChevronRight size={16} /></div>
-                </div>
-              </a>
-            </Reveal>
-          </div>
-        </div>
-      </section> */}
 
       {/* ── QUI NOUS SOMMES ── */}
       <section id="qui-nous-sommes" style={{ background: 'var(--cream-light)', padding: '7rem 2rem' }}>
@@ -261,7 +212,7 @@ function Home() {
           {/* Intro rapide */}
           <Reveal>
             <p style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 5rem', fontSize: '1rem', color: 'var(--slate)', lineHeight: 1.8, fontWeight: 300 }}>
-              Nawara Projects est un cabinet de conseil et d'ingénierie spécialisé dans le déploiement de franchises et la réalisation de projets immobiliers commerciaux en Afrique de l'Ouest. Nous faisons le pont entre les enseignes occidentales et les réalités opérationnelles du continent africain.
+              Nawara Projects est un cabinet de conseil et d'ingénierie spécialisé dans le déploiement de franchises et la réalisation de projets immobiliers commerciaux en Afrique de l'Ouest francophone. Nous faisons le pont entre les enseignes et les réalités opérationnelles du terrain.
             </p>
           </Reveal>
 
@@ -309,23 +260,19 @@ function Home() {
                 </h3>
 
                 <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '1.25rem', fontWeight: 300 }}>
-                  Fort de son expérience chez <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Artelia (2022–2026)</strong> en tant que Directeur Commercial des Partenariats Travaux, Miguel Gomes a accompagné de nombreuses campagnes de déploiement d'ERP (établissements recevant du public), d'enseignes en propre succursales, mixte ou franchise à travers toute la France.
-                </p>
-
-                <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '1.25rem', fontWeight: 300 }}>
-                  À travers ces expériences, il a observé un phénomène croissant : le continent africain, en plein dynamisme économique, attire de plus en plus d'enseignes occidentales cherchant à s'y implanter. Mais ces enseignes se heurtent systématiquement au même obstacle — <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>l'absence d'un relais local capable de structurer et déployer leur concept</strong> selon leurs standards.
+                  Quatre ans chez <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Artelia (2021–2025)</strong> comme Directeur Commercial des Partenariats Travaux, à accompagner des déploiements d'enseignes — succursales, franchise et mixte — partout en France. C'est là qu'est né le constat : les enseignes souhaitant s'implanter en Afrique de l'Ouest ne trouvaient pas de <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>relais local capable de structurer et déployer leur concept</strong> selon leurs standards.
                 </p>
 
                 <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '2.5rem', fontWeight: 300 }}>
-                  C'est de cette conviction qu'est né <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Nawara Projects</strong>, pour accompagner les enseignes occidentales et locales dans la construction et l'aménagement de leur concept sur le continent africain, avec la rigueur d'un opérateur européen et la proximité d'une équipe ancrée sur le terrain.
+                  Non pas que personne ne s'en occupait — d'autres acteurs existaient. Mais l'accompagnement de bout en bout, de la stratégie commerciale jusqu'à la livraison du local, restait rare. <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Nawara Projects</strong> est né de cette observation.
                 </p>
 
                 {/* Timeline */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {[
-                    { year: '2022–2026', label: 'Artelia', detail: 'Directeur Commercial Partenariats Travaux — déploiement ERP & enseignes (succursales, franchise, mixte)' },
-                    { year: '2025', label: 'Constat', detail: "Identification du manque de relais structuré pour les enseignes souhaitant s'installer en Afrique de l'Ouest" },
-                    { year: '2026', label: 'Création de Nawara Projects', detail: 'Lancement du cabinet — pôle Conseil depuis Paris + pôle Réalisation sur le continent africain' },
+                    { year: '2021–2025', label: 'Artelia', detail: 'Directeur Commercial Partenariats Travaux — déploiements ERP & enseignes (succursales, franchise, mixte)' },
+                    { year: '2025', label: 'Constat', detail: "Absence de relais structuré pour les enseignes ciblant l'Afrique de l'Ouest" },
+                    { year: '2026', label: 'Création de Nawara Projects', detail: "Fondation du cabinet à Abidjan, Côte d'Ivoire — siège opérationnel pour l'Afrique de l'Ouest francophone" },
                   ].map(({ year, label, detail }) => (
                     <div key={year} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
                       <div style={{ flexShrink: 0, paddingTop: '3px' }}>
@@ -368,6 +315,57 @@ function Home() {
               </div>
             </Reveal>
           </div>
+          <Reveal>
+            <div style={{ marginTop: '5rem', paddingTop: '3rem', borderTop: '1px solid rgba(196,152,58,0.18)' }}>
+              <div className="tag" style={{ marginBottom: '1.5rem' }}>Expert associé</div>
+              <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '3rem', alignItems: 'center' }}>
+                <div style={{ position: 'relative' }}>
+                  <div style={{
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(196,152,58,0.2)',
+                    aspectRatio: '3/4',
+                    maxWidth: '260px',
+                    margin: '0 auto',
+                  }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}alfred.jpeg`}
+                      alt="Alfred Kanaan — Expert associé Technique"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+                    />
+                  </div>
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '-1.25rem',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'var(--gold)',
+                    padding: '0.75rem 1.4rem',
+                    borderRadius: '8px',
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0 8px 30px rgba(196,152,58,0.35)',
+                  }}>
+                    <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1rem', fontWeight: 600, color: '#000', letterSpacing: '0.01em' }}>Alfred Kanaan</div>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.65)', marginTop: '2px' }}>Expert associé — Technique</div>
+                  </div>
+                </div>
+                <div style={{ paddingTop: '0.5rem' }}>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {['Architecte DPLG', 'Ingénieur Ponts et Chaussées', 'Docteur en sociologie urbaine', '~20 ans en maîtrise d\'œuvre'].map((item) => (
+                      <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--slate)' }}>
+                        <CheckCircle2 size={15} style={{ color: 'var(--gold)', flexShrink: 0 }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, margin: 0, fontWeight: 300 }}>
+                    Alfred Kanaan intervient en appui technique sur les missions de réalisation. Sa maîtrise des contraintes de construction et sa connaissance des dynamiques urbaines locales garantissent la rigueur d'exécution sur chaque chantier.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -385,12 +383,12 @@ function Home() {
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {[
-              { number: '01', title: 'Expertise locale et internationale', description: "Une équipe alliant standards européens et connaissance profonde des marchés africains — pour des décisions éclairées à chaque étape du projet." },
-              { number: '02', title: 'Approche bi-culturelle', description: "Nous parlons le langage des franchiseurs internationaux comme celui des opérateurs locaux africains. Ce positionnement unique est notre valeur différenciante." },
-              { number: '03', title: 'Réseau qualifié sur le continent', description: "Investisseurs, développeurs, promoteurs, architectes locaux : un écosystème de partenaires africains de confiance, activable rapidement sur le terrain." },
-              { number: '04', title: 'Accompagnement de bout en bout', description: "De l'analyse stratégique parisienne jusqu'à la livraison sur site africain, nous restons à vos côtés à chaque étape critique du projet." },
-              { number: '05', title: 'Indépendance et neutralité', description: "Nos deux pôles opèrent de manière autonome. Aucun conflit d'intérêts — nous défendons uniquement vos objectifs et intérêts." },
-              { number: '06', title: 'Rigueur et transparence', description: "Reporting régulier, jalons contractuels et communication proactive — des engagements concrets, pas seulement des promesses." },
+              { number: '01', title: 'Expertise construite sur le terrain', description: "Quatre ans de déploiements d'enseignes en France avant de s'installer à Abidjan. Pas une expertise théorique — une pratique directe des contraintes réelles de l'implantation commerciale." },
+              { number: '02', title: 'Approche bi-culturelle', description: "Nous parlons le langage des franchiseurs internationaux comme celui des opérateurs locaux. Ce positionnement est notre vraie valeur différenciante sur des marchés où la confiance se construit dans la durée." },
+              { number: '03', title: 'Réseau qualifié sur le continent', description: "Promoteurs, architectes locaux, bureaux d'études, entreprises TCE : un écosystème de partenaires sélectionnés sur trois marchés prioritaires — Côte d'Ivoire, Sénégal, Bénin." },
+              { number: '04', title: 'Accompagnement de bout en bout', description: "De l'analyse stratégique jusqu'à la livraison sur site, nous restons à vos côtés à chaque étape. Un seul interlocuteur, du premier rendez-vous à la remise des clés." },
+              { number: '05', title: 'Indépendance et neutralité', description: "Nos activités de conseil et de réalisation opèrent de manière autonome. Aucun conflit d'intérêts — nous défendons uniquement vos objectifs et intérêts." },
+              { number: '06', title: 'Rigueur et transparence', description: "Reporting régulier, jalons contractuels, communication proactive. Des engagements mesurables, pas des promesses." },
             ].map(({ number, title, description }, i) => (
               <Reveal key={number} delay={i * 60}>
                 <div className="service-card" style={{ padding: '2.5rem', border: '1px solid rgba(196,152,58,0.18)', borderRadius: '8px', background: 'rgba(255,255,255,0.03)', height: '100%' }}>
@@ -410,7 +408,7 @@ function Home() {
           <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start', marginBottom: '4rem' }}>
             <Reveal direction="left">
               <div>
-                <div className="tag" style={{ marginBottom: '1.5rem' }}>Conseil, Conception & Déploiement — depuis Paris</div>
+                <div className="tag" style={{ marginBottom: '1.5rem' }}>Conseil, Conception & Déploiement</div>
                 <h2 className="font-display" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
                   Développement de<br /><span style={{ color: 'var(--gold)' }}>Franchises en Afrique</span>
                 </h2>
@@ -419,11 +417,11 @@ function Home() {
             <Reveal direction="right">
               <div style={{ paddingTop: '1rem' }}>
                 <p style={{ color: 'var(--slate)', lineHeight: 1.8, fontSize: '1rem', fontWeight: 300 }}>
-                  Nawara Projects accompagne les franchiseurs internationaux souhaitant se déployer sur les marchés d'Afrique de l'Ouest. Cette activité de conseil et de conception est pilotée depuis nos bureaux régionaux présents sur le continent.
+                  Nawara Projects accompagne les franchiseurs internationaux souhaitant se déployer sur les marchés d'Afrique de l'Ouest francophone.
                 </p>
                 <div style={{ marginTop: '1.5rem', padding: '1rem 1.5rem', background: 'rgba(196,152,58,0.08)', borderLeft: '3px solid var(--gold)', borderRadius: '0 4px 4px 0' }}>
                   <p style={{ color: 'var(--slate)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
-                    <strong>Indépendance des activités :</strong> notre pôle Conseil peut intervenir de manière entièrement autonome, sans lien avec nos activités de réalisation terrain en Afrique.
+                    <strong>Indépendance des activités :</strong> cette activité de conseil peut intervenir de manière entièrement autonome, sans lien avec nos missions de réalisation terrain.
                   </p>
                 </div>
               </div>
@@ -431,9 +429,9 @@ function Home() {
           </div>
           <HorizontalScroll>
             {[
-              { icon: <Search size={22} />, title: 'Recherche & Qualification de Franchisés', description: "Identification et sélection rigoureuse de candidats franchisés correspondant aux critères financiers, opérationnels et culturels de votre enseigne." },
-              { icon: <Users size={22} />, title: 'Mise en Relation avec les Enseignes', description: "Facilitation du dialogue entre franchiseurs et candidats locaux, avec une compréhension fine des attentes des deux parties." },
-              { icon: <ClipboardList size={22} />, title: 'Analyse Stratégique de Déploiement', description: "Étude de marché, analyse concurrentielle, choix des territoires prioritaires et définition de la feuille de route d'expansion africaine." },
+              { icon: <Search size={22} />, title: 'Recherche & Qualification de Franchisés', description: "Identification et sélection rigoureuse de candidats franchisés correspondant aux critères financiers, opérationnels et culturels de votre enseigne. Nous ne présentons que des profils validés." },
+              { icon: <Users size={22} />, title: 'Mise en Relation avec les Enseignes', description: "Facilitation du dialogue entre franchiseurs et candidats locaux, avec une compréhension fine des attentes des deux parties. Nous parlons les deux langages." },
+              { icon: <ClipboardList size={22} />, title: 'Analyse Stratégique de Déploiement', description: "Étude de marché, analyse concurrentielle, choix des territoires prioritaires et définition de la feuille de route d'expansion sur les marchés d'Afrique de l'Ouest francophone." },
               { icon: <Handshake size={22} />, title: "Accompagnement jusqu'à la Signature", description: "Suivi complet du processus de négociation, coordination juridique et accompagnement opérationnel jusqu'à la finalisation du contrat de franchise." },
             ].map(({ icon, title, description }) => (
               <div key={title} className="h-scroll-card service-card" style={{ background: 'white', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '8px', padding: '2rem', display: 'flex', flexDirection: 'column' }}>
@@ -453,47 +451,37 @@ function Home() {
       <DeliverySection />
 
       {/* ZONE GEO */}
-      <section style={{ background: '#fff', padding: '6rem 2rem', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: '#fff', padding: '7rem 2rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto' }}>
-          <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '5rem', alignItems: 'center' }}>
-            <Reveal direction="left">
-              <div>
-                <div className="tag" style={{ marginBottom: '1.5rem', color: 'var(--gold)' }}>Zone d'intervention</div>
-                <h2 className="font-display" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 600, color: 'var(--cream)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
-                  Un ancrage profond en<br /><span style={{ color: 'var(--gold)' }}>Afrique de l'Ouest</span>
-                </h2>
-                <p style={{ color: 'var(--slate)', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '2.5rem', fontWeight: 300 }}>
-                  Nos équipes de réalisation interviennent directement sur le terrain africain. Notre connaissance des dynamiques économiques, réglementaires et culturelles locales garantit une exécution efficace et sécurisée de chaque projet.
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                  {["Côte d'Ivoire", 'Sénégal', 'Mali', 'Burkina Faso', 'Ghana', 'Bénin', 'Togo', 'Guinée', 'Niger', 'Mauritanie'].map((country) => (
-                    <span key={country} style={{ padding: '0.35rem 0.9rem', border: '1px solid rgba(196,152,58,0.35)', borderRadius: '100px', fontSize: '0.78rem', color: 'var(--charcoal)', fontWeight: 400 }}>{country}</span>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-            <Reveal direction="right">
-              <div style={{ background: '#F7F4EE', border: '1px solid rgba(196,152,58,0.2)', borderRadius: '12px', padding: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
-                  <Globe size={20} style={{ color: 'var(--gold)' }} />
-                  <span style={{ color: 'var(--charcoal)', fontWeight: 600, fontSize: '0.95rem' }}>Présence opérationnelle</span>
-                </div>
-                {[
-                  { city: "Abidjan, Côte d'Ivoire", role: 'Siège — Pôle Conseil & Conception', detail: 'Développement de franchises, conseil stratégique, relation enseignes internationales' },
-                  { city: "Abidjan, Côte d'Ivoire", role: 'Bureau régional — Réalisation terrain', detail: 'Coordination des projets africains, réseau franchisés, suivi chantiers sur site' },
-                  { city: 'Dakar, Sénégal', role: 'Antenne locale — Réalisation terrain', detail: 'Prospection et développement marché Sénégal & Mauritanie, suivi opérationnel' },
-                ].map(({ city, role, detail }) => (
-                  <div key={city} style={{ display: 'flex', gap: '1rem', paddingBottom: '1.5rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(196,152,58,0.1)' }}>
-                    <MapPin size={16} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '3px' }} />
-                    <div>
-                      <div style={{ color: 'var(--charcoal)', fontWeight: 600, fontSize: '0.9rem', marginBottom: '2px' }}>{city}</div>
-                      <div style={{ color: 'var(--gold-pale)', fontSize: '0.78rem', fontWeight: 500, marginBottom: '4px' }}>{role}</div>
-                      <div style={{ color: 'var(--slate)', fontSize: '0.78rem', lineHeight: 1.5 }}>{detail}</div>
-                    </div>
+          <Reveal>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <div className="tag" style={{ justifyContent: 'center', marginBottom: '1.25rem', color: 'var(--gold)' }}>Zone d'intervention</div>
+              <h2 className="font-display" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 600, color: 'var(--charcoal)', letterSpacing: '-0.02em', lineHeight: 1.15, maxWidth: '820px', margin: '0 auto 1.25rem' }}>
+                3 marchés prioritaires,<br /><span style={{ color: 'var(--gold)' }}>Afrique de l'Ouest francophone</span>
+              </h2>
+              <p style={{ color: 'var(--slate)', maxWidth: '680px', margin: '0 auto', lineHeight: 1.8, fontSize: '0.95rem', fontWeight: 300 }}>
+                Nawara Projects concentre son activité sur trois pays à fort potentiel commercial, sélectionnés pour leur dynamisme économique, leur stabilité réglementaire et la qualité de leur écosystème local. Toutes les missions sont pilotées depuis notre bureau d'Abidjan.
+              </p>
+            </div>
+          </Reveal>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            {[
+              { pays: "Côte d'Ivoire", ville: 'Abidjan — Siège principal', statut: 'Marché principal', detail: 'Hub logistique et financier de la sous-région. Siège opérationnel de Nawara Projects — toutes les missions sont pilotées depuis Abidjan.', primary: true },
+              { pays: 'Sénégal', ville: 'Dakar — Marché secondaire', statut: 'Marché de référence', detail: 'Économie en croissance, forte culture entrepreneuriale et marché de consommation mature. Deuxième marché de référence.', primary: false },
+              { pays: 'Bénin', ville: 'Cotonou — Marché secondaire', statut: 'Marché en expansion', detail: "Environnement des affaires réformé, croissance du secteur commercial et ouverture croissante aux enseignes internationales.", primary: false },
+            ].map(({ pays, ville, statut, detail, primary }) => (
+              <Reveal key={pays}>
+                <div className="service-card" style={{ background: primary ? 'var(--charcoal)' : '#F7F4EE', border: `1px solid ${primary ? 'var(--gold)' : 'rgba(196,152,58,0.2)'}`, borderRadius: '12px', padding: '2.25rem', height: '100%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
+                    <MapPin size={18} style={{ color: 'var(--gold)', flexShrink: 0 }} />
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--gold)' }}>{statut}</span>
                   </div>
-                ))}
-              </div>
-            </Reveal>
+                  <h3 className="font-display" style={{ fontSize: '1.6rem', fontWeight: 600, color: primary ? 'var(--cream)' : 'var(--charcoal)', marginBottom: '4px' }}>{pays}</h3>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--gold-pale)', marginBottom: '1rem' }}>{ville}</div>
+                  <p style={{ color: primary ? 'rgba(255,255,255,0.72)' : 'var(--slate)', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>{detail}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -642,28 +630,33 @@ function ExpertiseSection() {
     {
       sigle: 'DD',
       titre: 'Due Diligence',
-      description: "Audit technique, juridique et financier de vos actifs en Afrique. Identification des risques, évaluation de la conformité aux normes locales et recommandations.",
+      description: "Audit technique, juridique et financier. Identification des risques, évaluation de la conformité aux normes locales et recommandations opérationnelles.",
     },
     {
       sigle: 'AMO',
       titre: "Assistance à Maîtrise d'Ouvrage",
-      description: "Conseil et assistance technique au maître d'ouvrage tout au long du projet africain. Défense de vos intérêts et optimisation des décisions sur place.",
+      description: "Conseil et assistance technique au maître d'ouvrage tout au long du projet. Défense de vos intérêts, optimisation des décisions sur place.",
+    },
+    {
+      sigle: 'MOE',
+      titre: "Maîtrise d'Œuvre",
+      description: "Conception, direction et contrôle des travaux. Coordination des entreprises, respect des délais et de la qualité d'exécution.",
     },
     {
       sigle: 'OPC',
       titre: 'Ordonnancement, Pilotage & Coordination',
-      description: "Planification des travaux, gestion des interfaces et suivi de l'avancement chantier sur le continent africain.",
+      description: "Planification des travaux, gestion des interfaces entre corps d'état, suivi de l'avancement et tenue du planning contractuel.",
     },
     {
       sigle: 'CG',
-      titre: 'Contractant Général',
-      description: "Solution clé en main pour vos projets africains : conception, construction, coordination et livraison finale sous un contrat unique avec partenaires locaux.",
+      titre: 'Contractant Général (clé en main)',
+      description: "Prise en charge complète : conception, coordination des entreprises et livraison sous contrat unique. Un seul interlocuteur, une seule responsabilité.",
       featured: true,
     },
     {
       sigle: 'MOD',
       titre: "Maîtrise d'Ouvrage Déléguée",
-      description: "Délégation complète sur le continent : Nawara Projects représente et engage vos intérêts dans toutes les dimensions du projet africain.",
+      description: "Délégation complète de la maîtrise d'ouvrage. Nawara Projects représente et engage vos intérêts dans toutes les dimensions du projet.",
     },
   ]
 
@@ -673,12 +666,15 @@ function ExpertiseSection() {
       <div className="geo-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.2 }} />
       <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto' }}>
         <Reveal>
-          <div className="tag" style={{ marginBottom: '1.25rem', color: 'var(--gold)' }}>Réalisation opérationnelle — sur le continent africain</div>
-          <h2 className="font-display" style={{ margin: '0 0 clamp(2rem, 4vw, 3.25rem)', fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 600, color: 'var(--cream)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
-            Cinq métiers,<br /><span style={{ color: 'var(--gold)' }}>un seul interlocuteur</span>
+          <div className="tag" style={{ marginBottom: '1.25rem', color: 'var(--gold)' }}>Réalisation opérationnelle</div>
+          <h2 className="font-display" style={{ margin: '0 0 1.5rem', fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 600, color: 'var(--cream)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+            Six métiers,<br /><span style={{ color: 'var(--gold)' }}>un seul interlocuteur</span>
           </h2>
+          <p style={{ margin: '0 0 clamp(2rem, 4vw, 3.25rem)', maxWidth: '640px', color: 'var(--slate-light)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
+            Nos équipes interviennent directement sur le terrain en Côte d'Ivoire, au Sénégal et au Bénin. Chaque mission est pilotée depuis Abidjan, siège opérationnel de Nawara Projects.
+          </p>
         </Reveal>
-        <div className="expertise-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 'clamp(1rem, 1.6vw, 1.5rem)' }}>
+        <div className="expertise-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 1.6vw, 1.5rem)' }}>
           {metiers.map((m, i) => (
             <Reveal key={m.sigle} delay={i * 70}>
               <div className={`expertise-card service-card${m.featured ? ' expertise-card--featured' : ''}`} style={{ position: 'relative', background: '#fff', border: `1px solid ${m.featured ? 'rgba(196,152,58,0.4)' : '#e7e7e7'}`, borderRadius: '4px', padding: '1.75rem 1.5rem 2rem', boxSizing: 'border-box' as const }}>
@@ -727,15 +723,15 @@ function DeliverySection() {
         <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
           <Reveal direction="left">
             <div>
-              <div className="tag" style={{ marginBottom: '1.5rem' }}>Étape finale — sur site africain</div>
+              <div className="tag" style={{ marginBottom: '1.5rem' }}>Étape finale</div>
               <h2 className="font-display" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
                 Livraison &<br /><span style={{ color: 'var(--gold)' }}>Mise en exploitation</span>
               </h2>
               <p style={{ color: 'var(--slate)', lineHeight: 1.8, fontSize: '1rem', marginBottom: '1.5rem', fontWeight: 300 }}>
-                Nos équipes livrent votre cellule commerciale entièrement aménagée directement sur le continent africain — mobilier, signalétique, éclairage scénographique, parcours client et finitions premium. Tout est prêt pour accueillir vos premiers clients. Nous nous engageons à livrer le site à la date convenue, avec toutes les levées de réserves.
+                Nos équipes livrent votre cellule commerciale entièrement aménagée — mobilier, signalétique, éclairage, parcours client et finitions. Tout est prêt pour accueillir vos premiers clients.
               </p>
               <p style={{ color: 'var(--slate)', lineHeight: 1.8, fontSize: '1rem', marginBottom: '2rem', fontWeight: 300 }}>
-                La livraison est jalonnée d'étapes clés : notre équipe effectue un contrôle qualité rigoureux, procède aux levées de réserves et s'assure que chaque détail est conforme au cahier des charges. Vous récupérez un site opérationnel, prêt à l'exploitation dès le premier jour.
+                La livraison est jalonnée d'étapes clés : contrôle qualité rigoureux, levées de réserves et vérification de la conformité au cahier des charges. Vous récupérez un site opérationnel dès le premier jour.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                 {['Concept store', 'Scénographie', 'Mobilier', 'Signalétique', 'Levée de réserves', 'Livraison garantie'].map((t) => (
@@ -779,7 +775,7 @@ function DeliverySection() {
               </svg>
               <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem 1.5rem', background: 'linear-gradient(180deg, transparent, rgba(0,0,0,0.8))', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Sparkles size={16} style={{ color: 'var(--gold)' }} />
-                <span style={{ color: 'var(--cream)', fontSize: '0.85rem', fontWeight: 500, letterSpacing: '0.02em' }}>Livraison clé en main — sur le continent africain</span>
+                <span style={{ color: 'var(--cream)', fontSize: '0.85rem', fontWeight: 500, letterSpacing: '0.02em' }}>Livraison clé en main</span>
               </div>
             </div>
           </Reveal>
@@ -814,7 +810,7 @@ function PartnershipSection() {
               Un écosystème complet de<br /><span style={{ color: 'var(--gold)' }}>partenaires qualifiés</span>
             </h2>
             <p style={{ color: 'var(--slate)', maxWidth: '640px', margin: '0 auto', lineHeight: 1.7, fontSize: '0.95rem', fontWeight: 300 }}>
-              Nawara Projects s'appuie sur un réseau de partenaires locaux africains — de la conception parisienne jusqu'à l'exécution terrain sur le continent.
+              Nawara Projects s'appuie sur un réseau de partenaires locaux sélectionnés sur chacun de ses trois marchés prioritaires — de la conception jusqu'à l'exécution terrain.
             </p>
           </div>
         </Reveal>
@@ -842,7 +838,7 @@ function PartnershipSection() {
             <Network size={22} style={{ color: 'var(--gold)', flexShrink: 0 }} />
             <div style={{ color: 'var(--charcoal)', fontSize: '0.9rem', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--charcoal)', fontWeight: 600 }}>Vous êtes un partenaire local ?</strong>{' '}
-              Nous ouvrons régulièrement notre réseau à de nouveaux prestataires qualifiés opérant en Afrique de l'Ouest.{' '}
+              Nous ouvrons régulièrement notre réseau à de nouveaux prestataires qualifiés opérant en Côte d'Ivoire, au Sénégal ou au Bénin.{' '}
               <a href="#contact" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>Nous contacter</a>
             </div>
           </div>
@@ -859,25 +855,27 @@ const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string
 
 /* Libellés lisibles pour les valeurs des menus déroulants */
 const PROFILE_LABELS: Record<string, string> = {
-  franchiseur: 'Franchiseur',
-  franchise:   'Franchisé',
-  promoteur:   'Promoteur immobilier',
-  fonds:       "Fonds d'investissement",
-  enseigne:    'Enseigne / Retailer',
-  autre:       'Autre',
+  entrepreneur: 'Entrepreneur local',
+  diaspora:     'Membre de la diaspora',
+  investisseur: 'Investisseur étranger',
+  franchiseur:  'Franchiseur',
+  franchise:    'Franchisé',
+  promoteur:    'Promoteur immobilier',
+  autre:        'Autre',
 }
 const SUBJECT_LABELS: Record<string, string> = {
-  consulting: 'Développement de franchises',
-  travaux:    'Réalisation — projet africain',
-  mixte:      'Projet global (conseil + réalisation)',
-  autre:      'Autre demande',
+  franchises:  'Développement de franchises',
+  local:       'Recherche local commercial',
+  amo_moe:     'AMO / MOE',
+  contractant: 'Contractant Général clé en main',
+  autre:       'Autre demande',
 }
 
 type FormState = { name: string; email: string; phone: string; company: string; profile: string; subject: string; message: string }
 type FileData  = { name: string; data: string }
 
 function ContactForm() {
-  const [formData, setFormData] = useState<FormState>({ name: '', email: '', phone: '', company: '', profile: 'franchiseur', subject: 'consulting', message: '' })
+  const [formData, setFormData] = useState<FormState>({ name: '', email: '', phone: '', company: '', profile: 'entrepreneur', subject: 'franchises', message: '' })
   const [status, setStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle')
   const [filesBase64, setFilesBase64] = useState<FileData[]>([])
 
@@ -964,11 +962,11 @@ function ContactForm() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="form-row">
         <div><label style={labelStyle} htmlFor="profile">Profil porteur de projet*</label>
           <select id="profile" name="profile" value={formData.profile} onChange={(e)=>setFormData({...formData,profile:e.target.value})} style={{...inputStyle,cursor:'pointer'}} onFocus={e=>{e.target.style.borderColor='var(--gold)'}} onBlur={e=>{e.target.style.borderColor='rgba(196,152,58,0.22)'}}>
-            <option value="franchiseur">Franchiseur</option><option value="franchise">Franchisé</option><option value="promoteur">Promoteur immobilier</option><option value="fonds">Fonds d'investissement</option><option value="enseigne">Enseigne / Retailer</option><option value="autre">Autre</option>
+            <option value="entrepreneur">Entrepreneur local</option><option value="diaspora">Membre de la diaspora</option><option value="investisseur">Investisseur étranger</option><option value="franchiseur">Franchiseur</option><option value="franchise">Franchisé</option><option value="promoteur">Promoteur immobilier</option><option value="autre">Autre</option>
           </select></div>
         <div><label style={labelStyle} htmlFor="subject">Nature du projet*</label>
           <select id="subject" name="subject" value={formData.subject} onChange={(e)=>setFormData({...formData,subject:e.target.value})} style={{...inputStyle,cursor:'pointer'}} onFocus={e=>{e.target.style.borderColor='var(--gold)'}} onBlur={e=>{e.target.style.borderColor='rgba(196,152,58,0.22)'}}>
-            <option value="consulting">Développement de franchises</option><option value="travaux">Réalisation — projet africain</option><option value="mixte">Projet global (conseil + réalisation)</option><option value="autre">Autre demande</option>
+            <option value="franchises">Développement de franchises</option><option value="local">Recherche local commercial</option><option value="amo_moe">AMO / MOE</option><option value="contractant">Contractant Général clé en main</option><option value="autre">Autre demande</option>
           </select></div>
       </div>
       <div><label style={labelStyle} htmlFor="message">Votre projet*</label>
