@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import {
   ArrowRight, ArrowLeft, MapPin, Building2, Handshake, ClipboardList,
-  Search, Users, HardHat, CheckCircle2, Menu, X, ChevronRight,
+  Search, Users, HardHat, CheckCircle2, Menu, X,
   Sparkles, Wrench, Scale, Landmark, Hammer, Ruler, Calculator, Network,
   Send, ShieldCheck,
 } from 'lucide-react'
@@ -186,7 +186,7 @@ function Home() {
           </div>
           {/* Animated stats */}
           <div className="animate-fade-up animate-fade-up-d4" style={{ marginTop: '6rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', maxWidth: '680px', paddingTop: '3rem', borderTop: '1px solid rgba(196,152,58,0.3)' }}>
-            <StatItem suffix="+" numericValue={15}  label="Pays couverts" />
+            <StatItem suffix="+" numericValue={5}  label="années d'experiences retail" />
             <StatItem numericValue={3} label="Marchés prioritaires" />
             <StatItem value="6" label="Métiers, 1 Interlocuteur" />
           </div>
@@ -489,6 +489,7 @@ function Home() {
       {/* PARTENARIAT */}
       <PartnershipSection />
 
+
       {/* CONTACT */}
       <section id="contact" style={{ background: '#fff', padding: '7rem 2rem', position: 'relative', overflow: 'hidden' }}>
         <div className="geo-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.5 }} />
@@ -553,7 +554,7 @@ function Home() {
       }}>
         {/* Calendly — appel découverte */}
         <a
-          href="https://calendly.com/nawaraprojects/decouverte"
+          href="https://calendly.com/gomes-patrao7/15min"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -872,27 +873,14 @@ const SUBJECT_LABELS: Record<string, string> = {
 }
 
 type FormState = { name: string; email: string; phone: string; company: string; profile: string; subject: string; message: string }
-type FileData  = { name: string; data: string }
 
 function ContactForm() {
   const [formData, setFormData] = useState<FormState>({ name: '', email: '', phone: '', company: '', profile: 'entrepreneur', subject: 'franchises', message: '' })
   const [status, setStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle')
-  const [filesBase64, setFilesBase64] = useState<FileData[]>([])
 
   const inputStyle = { width: '100%', padding: '0.75rem 1rem', background: '#fff', border: '1px solid rgba(196,152,58,0.25)', borderRadius: '4px', color: 'var(--charcoal)', fontSize: '0.875rem', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' as const, fontFamily: "'DM Sans', sans-serif" }
   const labelStyle = { display: 'block', fontSize: '0.72rem', letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--gold)', marginBottom: '0.4rem', fontWeight: 600 }
 
-  const handleFiles = (fileList: FileList | null) => {
-    if (!fileList) return
-    const selected = Array.from(fileList).slice(0, 3)
-    Promise.all(
-      selected.map(file => new Promise<FileData>((resolve) => {
-        const reader = new FileReader()
-        reader.onload = () => resolve({ name: file.name, data: reader.result as string })
-        reader.readAsDataURL(file)
-      }))
-    ).then(setFilesBase64)
-  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
