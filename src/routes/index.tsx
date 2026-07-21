@@ -315,57 +315,6 @@ function Home() {
               </div>
             </Reveal>
           </div>
-          <Reveal>
-            <div style={{ marginTop: '5rem', paddingTop: '3rem', borderTop: '1px solid rgba(196,152,58,0.18)' }}>
-              <div className="tag" style={{ marginBottom: '1.5rem' }}>Expert associé</div>
-              <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '3rem', alignItems: 'center' }}>
-                <div style={{ position: 'relative' }}>
-                  <div style={{
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    border: '1px solid rgba(196,152,58,0.2)',
-                    aspectRatio: '3/4',
-                    maxWidth: '260px',
-                    margin: '0 auto',
-                  }}>
-                    <img
-                      src={`${import.meta.env.BASE_URL}alfred.jpeg`}
-                      alt="Alfred Kanaan — Expert associé Technique"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
-                    />
-                  </div>
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '-1.25rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'var(--gold)',
-                    padding: '0.75rem 1.4rem',
-                    borderRadius: '8px',
-                    textAlign: 'center',
-                    whiteSpace: 'nowrap',
-                    boxShadow: '0 8px 30px rgba(196,152,58,0.35)',
-                  }}>
-                    <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1rem', fontWeight: 600, color: '#000', letterSpacing: '0.01em' }}>Alfred Kanaan</div>
-                    <div style={{ fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.65)', marginTop: '2px' }}>Expert associé — Technique</div>
-                  </div>
-                </div>
-                <div style={{ paddingTop: '0.5rem' }}>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {['Architecte DPLG', 'Ingénieur Ponts et Chaussées', 'Docteur en sociologie urbaine', '~20 ans en maîtrise d\'œuvre'].map((item) => (
-                      <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--slate)' }}>
-                        <CheckCircle2 size={15} style={{ color: 'var(--gold)', flexShrink: 0 }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p style={{ color: 'var(--slate)', fontSize: '0.95rem', lineHeight: 1.85, margin: 0, fontWeight: 300 }}>
-                    Alfred Kanaan intervient en appui technique sur les missions de réalisation. Sa maîtrise des contraintes de construction et sa connaissance des dynamiques urbaines locales garantissent la rigueur d'exécution sur chaque chantier.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -466,19 +415,19 @@ function Home() {
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
             {[
-              { pays: "Côte d'Ivoire", ville: 'Abidjan — Siège principal', statut: 'Marché principal', detail: 'Hub logistique et financier de la sous-région. Siège opérationnel de Nawara Projects — toutes les missions sont pilotées depuis Abidjan.', primary: true },
-              { pays: 'Sénégal', ville: 'Dakar — Marché secondaire', statut: 'Marché de référence', detail: 'Économie en croissance, forte culture entrepreneuriale et marché de consommation mature. Deuxième marché de référence.', primary: false },
-              { pays: 'Bénin', ville: 'Cotonou — Marché secondaire', statut: 'Marché en expansion', detail: "Environnement des affaires réformé, croissance du secteur commercial et ouverture croissante aux enseignes internationales.", primary: false },
-            ].map(({ pays, ville, statut, detail, primary }) => (
+              { pays: "Côte d'Ivoire", ville: 'Abidjan — Siège principal', statut: 'Marché principal', detail: 'Hub logistique et financier de la sous-région. Siège opérationnel de Nawara Projects — toutes les missions sont pilotées depuis Abidjan.' },
+              { pays: 'Sénégal', ville: 'Dakar — Marché secondaire', statut: 'Marché de référence', detail: 'Économie en croissance, forte culture entrepreneuriale et marché de consommation mature. Deuxième marché de référence.' },
+              { pays: 'Bénin', ville: 'Cotonou — Marché secondaire', statut: 'Marché en expansion', detail: "Environnement des affaires réformé, croissance du secteur commercial et ouverture croissante aux enseignes internationales." },
+            ].map(({ pays, ville, statut, detail }) => (
               <Reveal key={pays}>
-                <div className="service-card" style={{ background: primary ? 'var(--charcoal)' : '#F7F4EE', border: `1px solid ${primary ? 'var(--gold)' : 'rgba(196,152,58,0.2)'}`, borderRadius: '12px', padding: '2.25rem', height: '100%' }}>
+                <div className="service-card" style={{ background: '#F7F4EE', border: '1px solid rgba(196,152,58,0.2)', borderRadius: '12px', padding: '2.25rem', height: '100%' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
                     <MapPin size={18} style={{ color: 'var(--gold)', flexShrink: 0 }} />
                     <span style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--gold)' }}>{statut}</span>
                   </div>
-                  <h3 className="font-display" style={{ fontSize: '1.6rem', fontWeight: 600, color: primary ? 'var(--cream)' : 'var(--charcoal)', marginBottom: '4px' }}>{pays}</h3>
+                  <h3 className="font-display" style={{ fontSize: '1.6rem', fontWeight: 600, color: 'var(--charcoal)', marginBottom: '4px' }}>{pays}</h3>
                   <div style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--gold-pale)', marginBottom: '1rem' }}>{ville}</div>
-                  <p style={{ color: primary ? 'rgba(255,255,255,0.72)' : 'var(--slate)', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>{detail}</p>
+                  <p style={{ color: 'var(--slate)', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>{detail}</p>
                 </div>
               </Reveal>
             ))}
